@@ -56,3 +56,789 @@
     background: #100d10;
   }
 }
+
+/* The Hunt — illustrated lore archive. */
+.lore-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(360px, .85fr);
+  gap: clamp(42px, 8vw, 120px);
+  align-items: center;
+  background: #171316;
+  color: #fff;
+}
+
+.lore-entry-art {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: #09080a;
+}
+
+.lore-entry-art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 12px rgba(9, 8, 10, .22);
+  pointer-events: none;
+}
+
+.lore-entry-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(.84) brightness(.84);
+}
+
+.lore-entry-copy h2,
+.lore-chapter-heading h2,
+.lore-close h2 {
+  font-size: clamp(54px, 6.7vw, 98px);
+  line-height: .86;
+}
+
+.lore-entry-copy > p:not(.section-kicker) {
+  max-width: 570px;
+  margin: 30px 0;
+  color: #c9bdc3;
+  line-height: 1.8;
+}
+
+.lore-page {
+  --lore-paper: #eee6d8;
+  --lore-dark: #121013;
+  --lore-ink: #231d20;
+  --lore-muted: #6c6065;
+  background: var(--lore-dark);
+}
+
+.lore-hero {
+  position: relative;
+  min-height: min(960px, 100svh);
+  display: flex;
+  align-items: end;
+  overflow: hidden;
+  background: #0d0b0d;
+  color: #fff;
+}
+
+.lore-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: saturate(.86) brightness(.76);
+}
+
+.lore-hero-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(9, 7, 9, .96), rgba(13, 10, 13, .67) 39%, rgba(13, 10, 13, .08) 72%), linear-gradient(0deg, rgba(8, 7, 8, .78), transparent 55%);
+}
+
+.lore-hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(900px, 74vw);
+  padding: 150px clamp(24px, 8vw, 138px) clamp(72px, 9vw, 128px);
+}
+
+.lore-hero-copy .breadcrumbs {
+  margin-bottom: 46px;
+}
+
+.lore-hero-copy .eyebrow {
+  color: #e8becb;
+}
+
+.lore-hero-copy h1 {
+  font-size: clamp(64px, 8.7vw, 132px);
+  line-height: .78;
+}
+
+.lore-hero-copy > p:not(.eyebrow) {
+  max-width: 650px;
+  margin: 32px 0;
+  color: #d7cad0;
+  line-height: 1.8;
+}
+
+.lore-subnav {
+  position: sticky;
+  top: 64px;
+  z-index: 8;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  background: rgba(18, 16, 19, .94);
+  backdrop-filter: blur(15px);
+  border-block: 1px solid rgba(255, 255, 255, .1);
+  scrollbar-width: none;
+}
+
+.lore-subnav::-webkit-scrollbar {
+  display: none;
+}
+
+.lore-subnav a {
+  flex: 0 0 auto;
+  padding: 18px 28px;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  font-size: 9px;
+  border-right: 1px solid rgba(255, 255, 255, .1);
+}
+
+.lore-subnav a:first-child {
+  border-left: 1px solid rgba(255, 255, 255, .1);
+}
+
+.lore-subnav a:hover {
+  background: #55305f;
+}
+
+.lore-prologue,
+.lore-concealment {
+  background: var(--lore-paper);
+  color: var(--lore-ink);
+}
+
+.lore-covenant,
+.modern-lore {
+  background: var(--lore-dark);
+  color: #fff;
+}
+
+.lore-chapter-heading {
+  display: grid;
+  grid-template-columns: 86px minmax(0, 1fr) minmax(280px, .58fr);
+  align-items: end;
+  gap: clamp(22px, 4vw, 60px);
+  margin-bottom: clamp(48px, 7vw, 90px);
+}
+
+.lore-chapter-heading > span {
+  align-self: start;
+  font-family: var(--serif);
+  font-size: clamp(58px, 6vw, 88px);
+  line-height: .8;
+  color: #9d4966;
+}
+
+.lore-chapter-heading > p {
+  margin: 0;
+  line-height: 1.75;
+  color: var(--lore-muted);
+}
+
+.lore-chapter-heading.light-heading > span {
+  color: #dca7b7;
+}
+
+.lore-chapter-heading.light-heading > p {
+  color: #b9adb3;
+}
+
+.lore-story-grid {
+  display: grid;
+  gap: clamp(70px, 10vw, 150px);
+}
+
+.lore-story {
+  display: grid;
+  grid-template-columns: minmax(300px, .92fr) minmax(320px, .72fr);
+  gap: clamp(42px, 8vw, 125px);
+  align-items: center;
+}
+
+.lore-story-reverse {
+  grid-template-columns: minmax(320px, .72fr) minmax(300px, .92fr);
+}
+
+.lore-story-reverse > .lore-plate {
+  order: 2;
+}
+
+.lore-story > div small,
+.recognition-grid > article > small {
+  display: block;
+  margin-bottom: 13px;
+  color: #9d4966;
+  text-transform: uppercase;
+  letter-spacing: .19em;
+  font-size: 9px;
+}
+
+.lore-story h3,
+.recognition-grid h3 {
+  font-size: clamp(40px, 4.7vw, 67px);
+  line-height: .95;
+}
+
+.lore-story > div p,
+.recognition-grid > article > p {
+  color: var(--lore-muted);
+  line-height: 1.8;
+  margin: 22px 0 0;
+}
+
+.lore-plate {
+  appearance: none;
+  font: inherit;
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(45, 36, 39, .18);
+  background: #0b090b;
+  color: #fff;
+  cursor: zoom-in;
+}
+
+.lore-plate img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  transition: transform .8s, filter .4s;
+}
+
+.lore-plate > span {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  padding: 11px 13px;
+  background: rgba(10, 8, 10, .86);
+  border: 1px solid rgba(255, 255, 255, .24);
+  text-transform: uppercase;
+  letter-spacing: .14em;
+  font-size: 8px;
+}
+
+.lore-plate:hover img,
+.covenant-card > button:hover img {
+  transform: scale(1.025);
+  filter: brightness(1.06);
+}
+
+.lore-feature-plate {
+  appearance: none;
+  font: inherit;
+  position: relative;
+  display: block;
+  width: 100%;
+  min-height: min(780px, 72vw);
+  margin: 0 0 clamp(70px, 10vw, 140px);
+  padding: 0;
+  overflow: hidden;
+  color: #fff;
+  background: #080708;
+  border: 1px solid rgba(255, 255, 255, .12);
+  cursor: zoom-in;
+}
+
+.lore-feature-plate > img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .9s, filter .4s;
+}
+
+.lore-feature-plate::after,
+.lore-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 48%, rgba(8, 7, 8, .94));
+}
+
+.lore-feature-plate:hover > img {
+  transform: scale(1.018);
+  filter: brightness(1.07);
+}
+
+.lore-feature-plate > span {
+  position: absolute;
+  z-index: 2;
+  left: clamp(24px, 4vw, 58px);
+  right: clamp(24px, 4vw, 58px);
+  bottom: clamp(24px, 4vw, 52px);
+  text-align: left;
+}
+
+.lore-feature-plate small,
+.lore-card small {
+  display: block;
+  margin-bottom: 9px;
+  color: #e5b8c7;
+  text-transform: uppercase;
+  letter-spacing: .19em;
+  font-size: 9px;
+}
+
+.lore-feature-plate strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(42px, 5.4vw, 78px);
+  font-weight: 500;
+}
+
+.lore-feature-plate i {
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: .15em;
+  font-size: 8px;
+}
+
+.covenant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.covenant-card {
+  --covenant: #55305f;
+  display: grid;
+  grid-template-columns: minmax(180px, .72fr) 1fr;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--covenant) 72%, white);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--covenant) 60%, #09080a), #0c0a0c 68%);
+}
+
+.covenant-card > button {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 430px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: #09080a;
+  cursor: zoom-in;
+}
+
+.covenant-card > button img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s, filter .4s;
+}
+
+.covenant-card > div {
+  align-self: end;
+  padding: 32px;
+}
+
+.covenant-card small {
+  color: color-mix(in srgb, var(--covenant) 32%, white);
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 8px;
+}
+
+.covenant-card h3 {
+  margin-top: 9px;
+  font-size: clamp(31px, 3.2vw, 48px);
+  line-height: .92;
+}
+
+.covenant-card p {
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, .68);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.blackbriar-covenant { --covenant: #55305f; }
+.viremont-covenant { --covenant: #0a2f67; }
+.fairborne-covenant { --covenant: #761d32; }
+.solas-covenant { --covenant: #9a641f; }
+
+.recognition-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(32px, 6vw, 80px);
+  margin-top: clamp(80px, 11vw, 150px);
+}
+
+.recognition-grid .lore-plate {
+  margin-bottom: 30px;
+  border-color: rgba(255, 255, 255, .14);
+}
+
+.recognition-grid > article > p {
+  color: #b9adb3;
+}
+
+.recognition-grid > article > small {
+  color: #dca7b7;
+}
+
+.lore-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.lore-card-grid-three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.lore-card {
+  appearance: none;
+  font: inherit;
+  position: relative;
+  display: block;
+  min-height: 620px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(45, 36, 39, .18);
+  background: #0b090b;
+  color: #fff;
+  text-align: left;
+  cursor: zoom-in;
+}
+
+.lore-card-wide {
+  grid-column: 1 / -1;
+  min-height: 720px;
+}
+
+.lore-card > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s, filter .4s;
+}
+
+.lore-card:hover > img {
+  transform: scale(1.025);
+  filter: brightness(1.07);
+}
+
+.lore-card > span {
+  position: absolute;
+  z-index: 2;
+  left: 28px;
+  right: 28px;
+  bottom: 26px;
+}
+
+.lore-card strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: clamp(34px, 4vw, 57px);
+  font-weight: 500;
+  line-height: .95;
+}
+
+.lore-card p {
+  max-width: 600px;
+  margin: 13px 0 0;
+  color: rgba(255, 255, 255, .72);
+  font-family: var(--sans);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.restricted-shell {
+  background: #e5d7c7;
+  color: var(--lore-ink);
+}
+
+.restricted-lore {
+  border-block: 1px solid rgba(45, 36, 39, .24);
+}
+
+.restricted-lore > summary {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: clamp(24px, 5vw, 75px);
+  align-items: center;
+  padding: clamp(38px, 6vw, 80px) 0;
+  cursor: pointer;
+  list-style: none;
+}
+
+.restricted-lore > summary::-webkit-details-marker {
+  display: none;
+}
+
+.restricted-mark {
+  font-family: var(--serif);
+  font-size: clamp(64px, 8vw, 108px);
+  line-height: .8;
+  color: #761d32;
+}
+
+.restricted-lore h2 {
+  font-size: clamp(54px, 7vw, 100px);
+  line-height: .86;
+}
+
+.restricted-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 28px;
+  color: #761d32;
+  text-transform: uppercase;
+  letter-spacing: .17em;
+  font-size: 9px;
+}
+
+.restricted-action b {
+  transition: transform .3s;
+}
+
+.restricted-lore[open] .restricted-action b {
+  transform: rotate(180deg);
+}
+
+.restricted-warning {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 30px;
+  margin: 0 0 70px 175px;
+  padding: 25px 0;
+  border-block: 1px solid rgba(118, 29, 50, .24);
+}
+
+.restricted-warning strong {
+  color: #761d32;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  font-size: 9px;
+}
+
+.restricted-warning p {
+  max-width: 700px;
+  margin: 0;
+  color: #675a60;
+  line-height: 1.7;
+}
+
+.restricted-story-grid {
+  padding-bottom: clamp(70px, 10vw, 140px);
+}
+
+.lore-close {
+  text-align: center;
+  background: #e7dbce;
+  color: var(--lore-ink);
+}
+
+.lore-close h2 {
+  max-width: 930px;
+  margin: auto;
+}
+
+.lore-close > p:not(.section-kicker) {
+  max-width: 760px;
+  margin: 34px auto;
+  color: #665b5f;
+  line-height: 1.8;
+}
+
+.lore-close > div {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.lore-close .atlas-button {
+  color: var(--lore-ink);
+  border-color: rgba(45, 36, 39, .28);
+}
+
+.lore-close .atlas-button:hover {
+  background: #171316;
+  color: #fff;
+}
+
+@media (max-width: 1000px) {
+  .lore-entry {
+    grid-template-columns: 1fr;
+  }
+
+  .lore-entry-art {
+    min-height: 680px;
+  }
+
+  .lore-chapter-heading {
+    grid-template-columns: 70px 1fr;
+  }
+
+  .lore-chapter-heading > p {
+    grid-column: 2;
+    max-width: 620px;
+  }
+
+  .covenant-grid,
+  .lore-card-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .lore-card-grid-three .lore-card {
+    min-height: 720px;
+  }
+}
+
+@media (max-width: 760px) {
+  .lore-entry-art {
+    min-height: 470px;
+  }
+
+  .lore-entry-copy h2,
+  .lore-chapter-heading h2,
+  .lore-close h2 {
+    font-size: 50px;
+  }
+
+  .lore-hero {
+    display: block;
+    min-height: 0;
+    padding-top: 520px;
+  }
+
+  .lore-hero > img {
+    height: 560px;
+    object-position: center top;
+  }
+
+  .lore-hero-shade {
+    height: 600px;
+    background: linear-gradient(0deg, #100d10, rgba(10, 8, 10, .18) 70%, rgba(10, 8, 10, 0));
+  }
+
+  .lore-hero-copy {
+    width: 100%;
+    padding: 38px 24px 66px;
+    background: #100d10;
+  }
+
+  .lore-hero-copy .breadcrumbs {
+    margin-bottom: 34px;
+  }
+
+  .lore-hero-copy h1 {
+    font-size: 58px;
+  }
+
+  .lore-subnav {
+    justify-content: flex-start;
+  }
+
+  .lore-subnav a {
+    padding: 16px 19px;
+  }
+
+  .lore-chapter-heading {
+    grid-template-columns: 46px 1fr;
+    gap: 16px;
+  }
+
+  .lore-chapter-heading > span {
+    font-size: 48px;
+  }
+
+  .lore-chapter-heading > p {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+  }
+
+  .lore-story,
+  .lore-story-reverse {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .lore-story-reverse > .lore-plate {
+    order: 0;
+  }
+
+  .lore-story h3,
+  .recognition-grid h3 {
+    font-size: 43px;
+  }
+
+  .lore-feature-plate {
+    min-height: 580px;
+  }
+
+  .lore-feature-plate i {
+    position: static;
+    display: block;
+    margin-top: 13px;
+  }
+
+  .covenant-grid,
+  .recognition-grid,
+  .lore-card-grid,
+  .lore-card-grid-three {
+    grid-template-columns: 1fr;
+  }
+
+  .covenant-card {
+    grid-template-columns: 1fr;
+  }
+
+  .covenant-card > button {
+    min-height: 460px;
+  }
+
+  .covenant-card > div {
+    padding: 26px;
+  }
+
+  .recognition-grid {
+    gap: 70px;
+  }
+
+  .lore-card,
+  .lore-card-grid-three .lore-card,
+  .lore-card-wide {
+    grid-column: auto;
+    min-height: 540px;
+  }
+
+  .restricted-lore > summary {
+    grid-template-columns: 54px 1fr;
+  }
+
+  .restricted-mark {
+    font-size: 54px;
+  }
+
+  .restricted-lore h2 {
+    font-size: 48px;
+  }
+
+  .restricted-warning {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin: 0 0 58px;
+  }
+}
