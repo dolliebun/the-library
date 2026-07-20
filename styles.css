@@ -252,3 +252,43 @@
     aspect-ratio: 3 / 2;
   }
 }
+
+/* Final hero cue placement: keep the invitation on the artwork, never in the
+   dark transition strip below it. */
+.hero .scroll-cue {
+  top: auto;
+  bottom: clamp(14px, 2vw, 28px);
+  z-index: 6;
+  padding: 8px 10px;
+  background: rgba(13, 9, 12, .38);
+  backdrop-filter: blur(5px);
+}
+
+/* The Hunt now has a purpose-built landscape hero rather than a portrait
+   book cover forced into a panoramic frame. */
+.hunt-page .atlas-hero > img {
+  object-fit: cover !important;
+  object-position: center !important;
+  background: #100d10;
+}
+
+@media (max-width: 760px) {
+  .hero .scroll-cue {
+    display: flex;
+    right: 18px;
+    bottom: calc(100% - (100vw * 793 / 1983) + 12px);
+    font-size: 8px;
+  }
+
+  .hero .scroll-cue i {
+    width: 34px;
+  }
+
+  .hunt-page .atlas-hero {
+    min-height: 760px;
+  }
+
+  .hunt-page .atlas-hero > img {
+    object-position: 64% center !important;
+  }
+}
