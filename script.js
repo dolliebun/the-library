@@ -1,3 +1,7 @@
+if(!document.querySelector('link[data-dollie-theme]')){
+  const theme=document.createElement('link');theme.rel='stylesheet';theme.href='dollie-theme.css';theme.dataset.dollieTheme='true';document.head.appendChild(theme);
+}
+
 const header = document.querySelector('.site-header');
 const toggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('#site-nav');
@@ -19,13 +23,23 @@ document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 document.querySelectorAll('#year').forEach(year => year.textContent = new Date().getFullYear());
 document.querySelectorAll('[data-placeholder]').forEach(link => link.addEventListener('click', event => event.preventDefault()));
 
-const huntCard = document.querySelector('.world-card:first-child');
-if (huntCard) {
-  huntCard.setAttribute('role', 'link'); huntCard.setAttribute('tabindex', '0');
-  const openHunt = () => location.href = 'hunt.html';
-  huntCard.addEventListener('click', openHunt);
-  huntCard.addEventListener('keydown', event => (event.key === 'Enter' || event.key === ' ') && openHunt());
-}
+document.querySelectorAll('.world-card').forEach((card,index) => {
+  const href = card.dataset.href || (index === 0 ? 'hunt.html' : '');
+  const button = card.querySelector('button');
+  if (!href) {
+    button?.setAttribute('aria-disabled','true');
+    button?.setAttribute('title','Coming soon');
+    return;
+  }
+  card.setAttribute('role', 'link');
+  card.setAttribute('tabindex', '0');
+  const openWorld = () => location.href = href;
+  card.addEventListener('click', openWorld);
+  card.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openWorld(); }
+  });
+});
+
 const filterButtons = document.querySelectorAll('[data-filter]');
 const characterCards = document.querySelectorAll('.character-card[data-tags]');
 filterButtons.forEach(button => button.addEventListener('click', () => {
